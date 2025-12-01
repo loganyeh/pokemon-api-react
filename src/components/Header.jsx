@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, useContext } from "react"
+import { MyContext } from "./MyContext";
 
 
 function Header() {
-    const [inputValue, setInputValue] = useState(``);
+    const {inputValue, setInputValue} = useContext(MyContext);
 
     const handleInputValue = (event) => {
         setInputValue(event.target.value);
