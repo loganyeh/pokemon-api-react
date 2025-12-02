@@ -11,12 +11,14 @@ function Header() {
     }
 
     const handleSearch = () => {
-        console.log(inputValue);
+        console.clear();
+        // console.log(inputValue);
         setInputValue(``);
     }
-
+    
     const handleConsoleClear = () => {
         console.clear();
+        setInputValue(``);
     }
 
     return (
