@@ -7,8 +7,19 @@ import Body from "./Body";
 function Pokedex() {
     // const {} = useContext(MyContext);
     const [inputValue, setInputValue] = useState(``);
-    // MAY NEED TO FIX
-    const BASE_URL = `https://pokeapi.co/api/v2/pokemon/${inputValue}`;
+    const [pokemon, setPokemon] = useState("");
+
+    useEffect(() => {
+        async function getData(){
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
+            const data = await res.json();
+            setPokemon(data);
+        }
+
+        getData();
+    }, [inputValue]);
+
+    console.log(pokemon);
 
     return (
         <>
