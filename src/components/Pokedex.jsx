@@ -10,25 +10,25 @@ function Pokedex() {
     const [pokemon, setPokemon] = useState("");
     const [pokemonArr, setPokemonArr] = useState([]);
 
-    useEffect(() => {
-        async function getData(){
-            // const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/ditto`);
-            const data = await res.json();
-            setPokemon(data);
-        }
+    // useEffect(() => {
+    //     async function getData(){
+    //         // const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
+    //         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/ditto`);
+    //         const data = await res.json();
+    //         setPokemon(data);
+    //     }
 
-        getData();
-    }, [inputValue]);
+    //     getData();
+    // }, [inputValue]);
 
-    for(let i = 0; i < 152; i++){
-        console.log(i);
-    }
+    // for(let i = 0; i < 152; i++){
+    //     console.log(i);
+    // }
 
     return (
         <>
             <div className="h-screen w-screen">
-                <MyContext.Provider value={{inputValue, setInputValue, pokemon, setPokemon}} >
+                <MyContext.Provider value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr}} >
                     <Header />
                     <Body />
                 </MyContext.Provider>

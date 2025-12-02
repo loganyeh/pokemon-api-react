@@ -1,9 +1,20 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { MyContext } from "./MyContext"
 
 function Card() {
     const {inputValue, setInputValue, pokemon, setPokemon} = useContext(MyContext);
-    console.log(pokemon)
+    console.log(pokemon);
+
+    useEffect(() => {
+        async function getData(){
+            // const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/ditto`);
+            const data = await res.json();
+            setPokemon(data);
+        }
+
+        getData();
+    }, [inputValue]);
 
     return (
         <>
