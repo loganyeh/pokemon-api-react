@@ -8,12 +8,13 @@ function Pokedex() {
   const [pokemon, setPokemon] = useState("");
   const [pokemonArr, setPokemonArr] = useState([]);
   const [pokemonCard, setPokemonCards] = useState([]);
+  const [resetHome, setResetHome] = useState(false);
 
   return (
     <>
       <div className="h-screen w-screen">
         <MyContext.Provider
-          value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr, pokemonCard, setPokemonCards}}
+          value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr, pokemonCard, setPokemonCards, resetHome, setResetHome}}
         >
           <NavBar />
           <Home />
