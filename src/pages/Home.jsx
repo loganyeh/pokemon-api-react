@@ -10,6 +10,7 @@ function Home() {
     const loadPokemon = async () => {
       try {
         const popularPokemon = await getPokemon();
+        // console.log(popularPokemon);
         setPokemonCards(popularPokemon);
       } catch (error) {
         console.log(error);
