@@ -1,26 +1,32 @@
 import Card from "../components/Card";
-import { useState, useContext, useEffect } from "react";
-import { MyContext } from "../context/MyContext";
+import { useState, useEffect } from "react";
+import { getPokemon } from "../services/api";
 
-function Body() {
-  const {
-    inputValue,
-    setInputValue,
-    pokemon,
-    setPokemon,
-    pokemonArr,
-    setPokemonArr,
-  } = useContext(MyContext);
-  const [pokemonID, setPokemonID] = useState(1);
-  const pokemonLength = 10;
+function Home() {
+  const [pokemonCard, setPokemonCards] = useState([]);
+
+  useEffect(() => {
+    const loadPokemon = async () => {
+      try {
+        const popularPokemon = await getPokemon();
+        setPokemonCards(popularPokemon);
+      } catch (error) {
+        console.log(error);
+      } finally {
+
+      }
+    }
+
+    loadPokemon();
+  }, []);
 
   return (
     <>
       <div className="h-5/6 w-full flex justify-center border-2 border-blue-600">
         <div className="h-full w-11/12 m-10 flex flex-wrap justify-around border-2 border-red-600">
           {/* <Card /> */}
-          {Array.from({ length: pokemonLength }).map((_, index) => {
-            return <Card key={index} pokemonID={index} />;
+          {pokemonCard.map((pokemon, index) => {
+            return <Card key={index} pokemon={pokemon} counter={index + 1} />;
           })}
         </div>
       </div>
@@ -28,4 +34,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default Home;
