@@ -1,9 +1,10 @@
 import Card from "../components/Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getPokemon } from "../services/api";
+import { MyContext } from "../context/MyContext";
 
 function Home() {
-  const [pokemonCard, setPokemonCards] = useState([]);
+  const {pokemonCard, setPokemonCards} = useContext(MyContext);
 
   useEffect(() => {
     const loadPokemon = async () => {

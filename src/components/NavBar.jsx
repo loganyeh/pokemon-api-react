@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { MyContext } from "../context/MyContext";
+import { searchPokemonQuery } from "../services/api";
 
 function NavBar() {
-  const { inputValue, setInputValue } = useContext(MyContext);
+  const { inputValue, setInputValue, pokemonCard, setPokemonCards } = useContext(MyContext);
 
   const handleInputValue = (event) => {
     setInputValue(event.target.value);
@@ -11,7 +12,7 @@ function NavBar() {
 
   const handleSearch = () => {
     console.clear();
-    // console.log(inputValue);
+    console.log(inputValue);
     setInputValue(``);
   };
 
