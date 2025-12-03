@@ -10,10 +10,20 @@ function NavBar() {
     // console.log(inputValue);
   };
 
-  const handleSearch = () => {
-    console.clear();
-    console.log(inputValue);
-    setInputValue(``);
+  const handleSearch = async () => {
+    // setInputValue(``);
+
+    try {
+      const searchResults = await searchPokemonQuery(inputValue);
+      setPokemonCards(searchResults);
+      console.log(searchResults);
+    } catch (error) {
+      console.error(error);
+    }
+    finally {
+
+    }
+
   };
 
   const handleConsoleClear = () => {
