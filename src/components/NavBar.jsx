@@ -3,7 +3,7 @@ import { MyContext } from "../context/MyContext";
 import { searchPokemonQuery } from "../services/api";
 
 function NavBar() {
-  const { inputValue, setInputValue, pokemonCard, setPokemonCards } = useContext(MyContext);
+  const { inputValue, setInputValue, pokemonCard, setPokemonCards, resetHome, setResetHome } = useContext(MyContext);
 
   const handleInputValue = (event) => {
     setInputValue(event.target.value);
@@ -23,12 +23,12 @@ function NavBar() {
     finally {
 
     }
-
   };
 
   const handleConsoleClear = () => {
     console.clear();
     setInputValue(``);
+    setResetHome([prev => !prev]);
   };
 
   return (

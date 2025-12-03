@@ -4,7 +4,7 @@ import { getPokemon } from "../services/api";
 import { MyContext } from "../context/MyContext";
 
 function Home() {
-  const {pokemonCard, setPokemonCards} = useContext(MyContext);
+  const {pokemonCard, setPokemonCards, resetHome, setResetHome} = useContext(MyContext);
 
   useEffect(() => {
     const loadPokemon = async () => {
@@ -20,7 +20,7 @@ function Home() {
     }
 
     loadPokemon();
-  }, []);
+  }, [resetHome]);
 
   return (
     <>
