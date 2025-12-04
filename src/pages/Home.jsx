@@ -4,7 +4,14 @@ import { getPokemon } from "../services/api";
 import { MyContext } from "../context/MyContext";
 
 function Home() {
-  const {pokemonCard, setPokemonCards, resetHome, setResetHome} = useContext(MyContext);
+  const {
+    inputValue,
+    setInputValue,
+    pokemonCard,
+    setPokemonCards,
+    resetHome,
+    setResetHome,
+  } = useContext(MyContext);
 
   useEffect(() => {
     const loadPokemon = async () => {
@@ -15,9 +22,8 @@ function Home() {
       } catch (error) {
         console.log(error);
       } finally {
-
       }
-    }
+    };
 
     loadPokemon();
   }, [resetHome]);
@@ -27,9 +33,11 @@ function Home() {
       <div className="h-5/6 w-full flex justify-center border-2 border-blue-600">
         <div className="h-full w-11/12 m-10 flex flex-wrap justify-around border-2 border-red-600">
           {/* <Card /> */}
-          {pokemonCard.map((pokemon, index) => {
-            return <Card key={index} pokemon={pokemon} counter={index + 1} />;
-          })}
+          {pokemonCard
+            .filter((pokemon) => pokemon.name.startsWith(inputValue))
+            .map((pokemon, index) => {
+              return <Card key={index} pokemon={pokemon} counter={index + 1} />;
+            })}
         </div>
       </div>
     </>

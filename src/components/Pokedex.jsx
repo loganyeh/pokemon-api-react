@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { MyContext } from "../context/MyContext";
 import NavBar from "./NavBar";
 import Home from "../pages/Home";
+import { Routes, Route } from 'react-router-dom';
 
 function Pokedex() {
   const [inputValue, setInputValue] = useState(``);
@@ -13,11 +14,13 @@ function Pokedex() {
   return (
     <>
       <div className="h-screen w-screen">
-        <MyContext.Provider
-          value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr, pokemonCard, setPokemonCards, resetHome, setResetHome}}
-        >
-          <NavBar />
-          <Home />
+        <MyContext.Provider value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr, pokemonCard, setPokemonCards, resetHome, setResetHome}}>
+          <Routes>
+            <Route path="/" element={<NavBar />}/>
+          </Routes>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+          </Routes>
         </MyContext.Provider>
       </div>
     </>
