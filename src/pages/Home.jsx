@@ -13,6 +13,7 @@ function Home() {
     setResetHome,
     pokemonSpriteArr, setPokemonSpriteArr
   } = useContext(MyContext);
+  const generatePokemonIndexNum = Array.from({ length: 151 }, (_, i) => i + 1);
 
   useEffect(() => {
     const loadPokemon = async () => {
@@ -42,7 +43,7 @@ function Home() {
           {pokemonCard
             .filter((pokemon) => pokemon.name.startsWith(inputValue))
             .map((pokemon, index) => {
-              return <Card key={index} pokemon={pokemon} counter={index + 1} sprite={pokemonSpriteArr} />;
+              return <Card key={index} pokemon={pokemon} counter={generatePokemonIndexNum[index]} sprite={pokemonSpriteArr} />;
             })}
         </div>
       </div>

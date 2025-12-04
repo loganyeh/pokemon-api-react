@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 function Card({ pokemon, counter, sprite }) {
-  const [pokemonIndexNum, setPokemonIndexNum] = useState(1);
 
   return (
     <>
