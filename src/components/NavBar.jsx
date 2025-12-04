@@ -59,7 +59,9 @@ function NavBar() {
             Search
           </button>
         </div>
-        <div>Favorites</div>
+        <div>
+          <Link to="/favorites">Favorites</Link>
+        </div>
       </div>
     </>
   );
