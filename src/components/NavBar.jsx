@@ -21,6 +21,7 @@ function NavBar() {
       console.log(searchResults);
     } catch (error) {
       console.error(error);
+      console.log(`Pokemon not found`);
     }
     finally {
 

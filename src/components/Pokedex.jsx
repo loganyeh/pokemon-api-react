@@ -10,11 +10,12 @@ function Pokedex() {
   const [pokemonArr, setPokemonArr] = useState([]);
   const [pokemonCard, setPokemonCards] = useState([]);
   const [resetHome, setResetHome] = useState(false);
+  const [pokemonSpriteArr, setPokemonSpriteArr] = useState([]);
 
   return (
     <>
       <div className="h-screen w-screen">
-        <MyContext.Provider value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr, pokemonCard, setPokemonCards, resetHome, setResetHome}}>
+        <MyContext.Provider value={{inputValue, setInputValue, pokemon, setPokemon, pokemonArr, setPokemonArr, pokemonCard, setPokemonCards, resetHome, setResetHome, pokemonSpriteArr, setPokemonSpriteArr}}>
           <Routes>
             <Route path="/" element={<NavBar />}/>
           </Routes>

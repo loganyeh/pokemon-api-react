@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 import { useState, useEffect, useContext } from "react";
-import { getPokemon } from "../services/api";
+import { getPokemon, getPokemonSprites } from "../services/api";
 import { MyContext } from "../context/MyContext";
 
 function Home() {
@@ -11,14 +11,17 @@ function Home() {
     setPokemonCards,
     resetHome,
     setResetHome,
+    pokemonSpriteArr, setPokemonSpriteArr
   } = useContext(MyContext);
 
   useEffect(() => {
     const loadPokemon = async () => {
       try {
         const popularPokemon = await getPokemon();
-        // console.log(popularPokemon);
         setPokemonCards(popularPokemon);
+        const pokemonSpritesDefault = await getPokemonSprites();
+        setPokemonSpriteArr(pokemonSpritesDefault);
+        console.log(pokemonSpritesDefault);
       } catch (error) {
         console.log(error);
       } finally {
@@ -28,6 +31,9 @@ function Home() {
     loadPokemon();
   }, [resetHome]);
 
+  // write a useeffect for the getpokemonSprites api fetch ? call ? 
+  console.log(pokemonSpriteArr);
+
   return (
     <>
       <div className="h-5/6 w-full flex justify-center border-2 border-blue-600">
@@ -36,7 +42,7 @@ function Home() {
           {pokemonCard
             .filter((pokemon) => pokemon.name.startsWith(inputValue))
             .map((pokemon, index) => {
-              return <Card key={index} pokemon={pokemon} counter={index + 1} />;
+              return <Card key={index} pokemon={pokemon} counter={index + 1} sprite={pokemonSpriteArr} />;
             })}
         </div>
       </div>
