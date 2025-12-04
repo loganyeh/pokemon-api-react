@@ -43,7 +43,7 @@ function Home() {
           {pokemonCard
             .filter((pokemon) => pokemon.name.startsWith(inputValue))
             .map((pokemon, index) => {
-              return <Card key={index} pokemon={pokemon} counter={generatePokemonIndexNum[index]} sprite={pokemonSpriteArr} />;
+              return <Card key={index} pokemon={pokemon} counter={index + 1} sprite={pokemonSpriteArr} />;
             })}
         </div>
       </div>
