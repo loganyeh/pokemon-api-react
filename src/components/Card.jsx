@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 
 function Card({ pokemon, counter, sprite }) {
 
+  // click click and state variable boolean for click and set it to the number id
+  // then map it to a state array and then add to favorites page
+
   return (
     <>
       <div className="h-95 w-75 grid grid-rows-12 grid-cols-12 mb-10 border-2 border-yellow-600 rounded-2xl">
