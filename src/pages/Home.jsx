@@ -13,6 +13,7 @@ function Home() {
     setResetHome,
     pokemonSpriteArr, setPokemonSpriteArr
   } = useContext(MyContext);
+  const generatePokemonIndexNum = Array.from({ length: 151 }, (_, i) => i + 1);
 
   useEffect(() => {
     const loadPokemon = async () => {
