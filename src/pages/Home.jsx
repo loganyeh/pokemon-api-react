@@ -33,7 +33,6 @@ function Home() {
   }, [resetHome]);
 
   // write a useeffect for the getpokemonSprites api fetch ? call ? 
-  console.log(pokemonSpriteArr);
 
   return (
     <>

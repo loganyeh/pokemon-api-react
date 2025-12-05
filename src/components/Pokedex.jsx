@@ -14,7 +14,8 @@ function Pokedex() {
   const [pokemonSpriteArr, setPokemonSpriteArr] = useState([]);
 
   const [favArray, setFavArray] = useState([]);
-  // create a isFavorite state variable for each ? state card component ? 
+  // create a isFavorite state variable for each ? state card component ?
+  const [testCounter, setTestCounter] = useState(0);
 
   return (
     <>
@@ -35,6 +36,8 @@ function Pokedex() {
             setPokemonSpriteArr,
             favArray,
             setFavArray,
+            testCounter,
+            setTestCounter,
           }}
         >
           <NavBar />

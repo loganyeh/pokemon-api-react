@@ -2,13 +2,14 @@ import { useContext, useState } from "react";
 import { MyContext } from "../context/MyContext";
 
 function Card({ pokemon, counter, sprite }) {
-  const [isFavorite, setIsFavorite, favArray, setFavArray] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { favArray, setFavArray, testCounter, setTestCounter } = useContext(MyContext);
 
   // click click and state variable boolean for click and set it to the number id
   // then map it to a state array and then add to favorites page
   function handleFavorite() {
     setIsFavorite(prev => !prev);
-    
+    setFavArray(prev => [...prev, pokemon]);
   }
 
   return (
