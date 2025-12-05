@@ -17,3 +17,15 @@ export const getPokemonSprites = async () => {
   const data = await response.json();
   return data.sprites.front_default;
 };
+
+export const getPokemonNames = async () => {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=15&offset=0`);
+  const data = await response.json();
+  return data.results;
+}
+
+export const getPokemonID = async () => {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/9`);
+  const data = await response.json();
+  return data.id;
+};
