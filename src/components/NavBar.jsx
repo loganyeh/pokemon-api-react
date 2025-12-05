@@ -9,11 +9,9 @@ function NavBar() {
 
   const handleInputValue = (event) => {
     setInputValue(event.target.value);
-    // console.log(inputValue);
   };
 
   const handleSearch = async () => {
-    // setInputValue(``);
     if (inputValue === "") return console.log("search is empty");
 
     try {
