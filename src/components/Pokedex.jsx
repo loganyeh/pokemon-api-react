@@ -13,6 +13,9 @@ function Pokedex() {
   const [resetHome, setResetHome] = useState(false);
   const [pokemonSpriteArr, setPokemonSpriteArr] = useState([]);
 
+  const [favArray, setFavArray] = useState([]);
+  // create a isFavorite state variable for each ? state card component ? 
+
   return (
     <>
       <div className="h-screen w-screen">
@@ -30,9 +33,11 @@ function Pokedex() {
             setResetHome,
             pokemonSpriteArr,
             setPokemonSpriteArr,
+            favArray,
+            setFavArray,
           }}
         >
-          <NavBar/>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favorites" element={<Favorites />} />
