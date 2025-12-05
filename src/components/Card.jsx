@@ -1,15 +1,23 @@
-import { useState, useEffect } from "react";
+import { useContext, useState } from "react";
+import { MyContext } from "../context/MyContext";
 
 function Card({ pokemon, counter, sprite }) {
+  const [isFavorite, setIsFavorite] = useState(false);
 
   // click click and state variable boolean for click and set it to the number id
   // then map it to a state array and then add to favorites page
+  function handleFavorite() {
+    setIsFavorite(prev => !prev);
+    console.log(isFavorite);
+  }
 
   return (
     <>
       <div className="h-95 w-75 grid grid-rows-12 grid-cols-12 mb-10 border-2 border-yellow-600 rounded-2xl">
-        <div className="border-2 border-black row-start-1 row-end-3 col-start-1 col-end-4">
-          #{(counter)}
+        <div onClick={handleFavorite} className={`border-2 border-black row-start-1 row-end-3 col-start-1 col-end-4 hover:bg-gray-200 active:bg-gray-300
+        ${isFavorite ? `bg-red-600` : ``}
+        `}>
+          #{(counter)} 
         </div>
         <img
           className="h-full w-full border-2 border-black row-start-3 row-end-10 col-start-3 col-end-11 object-contain"
