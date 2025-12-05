@@ -17,3 +17,15 @@ export const getPokemonSprites = async () => {
   const data = await response.json();
   return data.sprites.front_default;
 };
+
+export const getPokemonNames = async () => {
+  const response = await fetch(``);
+  const data = response.json();
+  return ;
+}
+
+
+// maybe create an api search that gets the pokemon id name then take that info and 
+// bring it into another api search to then get the number and also sprite as well
+
+
