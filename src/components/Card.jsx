@@ -4,14 +4,14 @@ import { MyContext } from "../context/MyContext";
 function Card({ pokemon, counter, sprite }) {
   // const [isFavorite, setIsFavorite] = useState(false);
   const { favArray, setFavArray, testCounter, setTestCounter } = useContext(MyContext);
-  const isFavorite = favArray.some(p => p.id === pokemon.id);
+  const isFavorite = favArray.some(p => p.name === pokemon.name);
 
   // click click and state variable boolean for click and set it to the number id
   // then map it to a state array and then add to favorites page
   function handleFavorite() {
     setFavArray(prev => {
-      if(prev.some(p => p.id === pokemon.id)){
-        return prev.filter(p => p.id !== pokemon.id);
+      if(prev.some(p => p.name === pokemon.name)){
+        return prev.filter(p => p.name !== pokemon.name);
       } else {
         return [...prev, pokemon];
       }
