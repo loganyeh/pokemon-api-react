@@ -4,14 +4,8 @@ import { searchPokemonQuery } from "../services/api";
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const {
-    inputValue,
-    setInputValue,
-    pokemonCard,
-    setPokemonCards,
-    resetHome,
-    setResetHome,
-  } = useContext(MyContext);
+  const { inputValue, setInputValue, setPokemonCards, setResetHome } =
+    useContext(MyContext);
 
   const handleInputValue = (event) => {
     setInputValue(event.target.value);
